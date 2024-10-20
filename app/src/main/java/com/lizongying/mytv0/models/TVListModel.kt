@@ -35,7 +35,7 @@ class TVListModel(private val name: String, private val groupIndex: Int) : ViewM
         get() = _positionPlaying.value ?: 0
 
     fun setPosition(position: Int) {
-        Log.i(TAG, "list setPosition $position")
+        Log.i(TAG, "選擇頻道 $position")
         _position.value = position
     }
 
@@ -109,8 +109,8 @@ class TVListModel(private val name: String, private val groupIndex: Int) : ViewM
     fun initTVList() {
         _tvList.value = mutableListOf()
     }
-    //API17+: clear() in ViewModel must rename!
-    fun clear2() {
+
+    fun clearData() {
         initTVList()
         setPosition(0)
     }
@@ -156,7 +156,6 @@ class TVListModel(private val name: String, private val groupIndex: Int) : ViewM
 
     init {
         _position.value = SP.position
-        Log.i(TAG, "default position ${SP.position}")
     }
 
     fun size(): Int {

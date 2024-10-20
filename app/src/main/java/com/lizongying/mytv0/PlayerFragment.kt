@@ -23,8 +23,8 @@ import androidx.media3.exoplayer.DefaultRenderersFactory
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.mediacodec.MediaCodecSelector
 import androidx.media3.exoplayer.mediacodec.MediaCodecUtil
-import com.lizongying.mytv0.databinding.PlayerBinding
 import com.lizongying.mytv0.data.SourceType
+import com.lizongying.mytv0.databinding.PlayerBinding
 import com.lizongying.mytv0.models.TVModel
 
 
@@ -39,6 +39,7 @@ class PlayerFragment : Fragment() {
 
     private lateinit var mainActivity: MainActivity
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         mainActivity = activity as MainActivity
         super.onActivityCreated(savedInstanceState)
@@ -227,13 +228,7 @@ class PlayerFragment : Fragment() {
         }
     }
 
-    override fun onStart() {
-        Log.i(TAG, "onStart")
-        super.onStart()
-    }
-
     override fun onResume() {//move from onstart to onresume, for fix bug on sharp tv
-        Log.i(TAG, "play onResume")
         super.onResume()
         if (player?.isPlaying == false) {
             Log.i(TAG, "replay")
